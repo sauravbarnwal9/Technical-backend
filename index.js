@@ -10,20 +10,25 @@ const init = async () => {
         // add options if needed
     });
 
-  const server = Hapi.server({
-  port: process.env.PORT || 5000,
-  host: 'localhost',
-  routes: {
-    cors: {
-      origin: ['http://localhost:3000'], // your React app's origin
-      credentials: true,
-      additionalHeaders: ['authorization', 'content-type'],
-      additionalExposedHeaders: ['authorization'],
-    },
-  },
-});
+    //   const server = Hapi.server({
+    //   port: process.env.PORT || 5000,
+    //   host: 'localhost',
+    //   routes: {
+    //     cors: {
+    //       origin: ['http://localhost:3000'], // your React app's origin
+    //       credentials: true,
+    //       additionalHeaders: ['authorization', 'content-type'],
+    //       additionalExposedHeaders: ['authorization'],
+    //     },
+    //   },
+    // });
 
 
+    const server = new Hapi.Server({
+        port: process.env.PORT,
+        host: process.env.HOST,
+        routes: { cors: true, payload: { timeout: false } },
+    });
 
 
     // Register hapi jwt plugin
