@@ -1,6 +1,6 @@
 import Joi from 'joi';
 import { failActionFunction, sendError, sendSuccess } from '../utils/response.js';
-import AuthController from '../controllers/AuthController.js';
+import AuthController from '../controllers/authController.js';
 import { LANGUAGE, STATUS_MSG } from '../config/AppConstraints.js';
 
 const authRoutes = [
